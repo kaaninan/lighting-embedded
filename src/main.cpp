@@ -53,7 +53,7 @@ void sendLedValues (void* arg){
 		vTaskDelay(100 / portTICK_RATE_MS);
 
 		if(uxQueueSpacesAvailable(xQueueBluetooth) < 5){
-			Serial.print("Available: ");
+			Serial.print("Available Warning: ");
 			Serial.print(uxQueueSpacesAvailable(xQueueBluetooth));
 		}
 	}
@@ -219,7 +219,7 @@ void setup() {
 	xTaskCreatePinnedToCore(sendLedValues, "sendLedValues", 10000/2, NULL, 1, NULL, 0);
 	xTaskCreatePinnedToCore(sendBattery, "sendBattery", 10000/2, NULL, 1, NULL, 0);
 	
-	// Led
+	// Led & Sensor
 	xTaskCreatePinnedToCore(ledTask, "ledTask", 10000/2, NULL, 1, NULL, 1);
 	xTaskCreatePinnedToCore(sensorTask, "sensorTask", 10000/2, NULL, 1, NULL, 1);
 }

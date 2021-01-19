@@ -38,6 +38,7 @@ float Led::mapfloat(long x, long in_min, long in_max, long out_min, long out_max
     return (float)(x - in_min) * (out_max - out_min) / (float)(in_max - in_min) + out_min;
 }
 
+// https://blog.saikoled.com/post/44677718712/how-to-convert-from-hsi-to-rgb-white
 void Led::hsi2rgbw(float H, float S, float I, int* rgbw) {
     int r, g, b, w;
     float cos_h, cos_1047_h;
