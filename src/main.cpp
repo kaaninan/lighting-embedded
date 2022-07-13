@@ -188,7 +188,7 @@ void setup() {
 	Serial.begin(115200);
 
 	device->begin();
-	// config();
+	config();
 
 	bluetooth->setup();
 	led->begin();
